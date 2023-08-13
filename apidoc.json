@@ -4,6 +4,6 @@
   "description": "Cette API permet d'authentifier un utilisateur et répond en retour avec un token",
   "apidoc": {
     "title": "Auth Service Rest API",
-    "url" : "https://stormy-anchorage-69265-10a397e71b11.herokuapp.com"
+    "url" : "https://limitless-savannah-34441-943d2c48f28e.herokuapp.com"
   }
 }

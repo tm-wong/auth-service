@@ -12,6 +12,7 @@
   },
   "scripts": {
     "test": "tap \"test/**/*.test.js\"",
+    "apidoc": "npx apidoc --debug -i 'src/routes/' -f '(index|root).js' -o apidoc",
     "start": "node server.js",
     "dev": "NODE_ENV=dev PORT=3000 FORCE_COLOR=true node --watch server.js"
   },
@@ -22,6 +23,7 @@
     "@fastify/autoload": "^5.0.0",
     "@fastify/cors": "^8.3.0",
     "@fastify/sensible": "^5.0.0",
+    "@fastify/static": "^6.10.2",
     "apidoc": "^1.1.0",
     "bcrypt": "^5.1.0",
     "dotenv": "^16.3.1",
