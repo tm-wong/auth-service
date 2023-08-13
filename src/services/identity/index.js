@@ -50,10 +50,27 @@ module.exports = class IdentityService {
 
     async sign(payload) {
 
+        let key = null, keyPath = null;
         const { exp, iat } = payload;
-        const keyPath = path.join(__dirname, process.env.PRIVATE_KEY);
-        const key = await fs.readFile(keyPath);
 
+        // retrieve key
+        const env = process.env.NODE_ENV;
+
+        if (env === 'dev') {
+            keyPath = path.join(__dirname, process.env.PRIVATE_KEY);
+            key = await fs.readFile(keyPath);
+        }
+
+        else if (env === 'docker') {
+            keyPath = process.env.PRIVATE_KEY;
+            key = await fs.readFile(keyPath);
+        }
+
+        else if (env === 'production') {
+            key = process.env.PRIVATE_KEY;
+        }
+
+        // sign payload
         return {
             access_token: jwt.sign(
                 JSON.stringify(payload),
