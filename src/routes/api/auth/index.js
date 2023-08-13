@@ -170,7 +170,7 @@ module.exports = async(fastify/* , opts */) => {
      *        "token_type": "Bearer"
      *      }
      *
-     *      export TOKEN='eyJhbGciOiJSUzI1NiJ9.eyJ1c2VyX25h...'
+     *      export TOKEN='eyJhbGciOiJSUzI1NiJ9.eyJ1c2VyX25hbWUiOiJlZmlua2xlMCIsImlzcyI6ImF1...'
      *
      *
      * @apiUse BadRequestError

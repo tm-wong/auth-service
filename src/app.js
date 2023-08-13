@@ -3,6 +3,7 @@
 const path = require('path');
 const AutoLoad = require('@fastify/autoload');
 const cors = require('@fastify/cors');
+const fastifyStatic = require('@fastify/static');
 
 // Pass --options via CLI arguments in command to enable these options.
 module.exports.options = {};
@@ -18,11 +19,17 @@ module.exports = async function(fastify, opts) {
         allowedHeaders: ['Accept', 'Content-Type', 'Authorization']
     });
 
-    // Service de fichiers statiques
-    // de façon à rendre la documentation accessible
-    // fastify.register(require('@fastify/static'), {
-    //     root: path.join(__dirname, 'apidoc')
-    // });
+    // static file service for documentation
+    fastify.register(fastifyStatic, {
+        root: path.join(__dirname, '../apidoc')
+    });
+
+    fastify.register(fastifyStatic, {
+        root: path.join(__dirname, '../apidoc/assets'),
+        prefix: '/api/assets',
+        wildcard: true,
+        decorateReply: false
+    });
 
     // Do not touch the following lines
 
