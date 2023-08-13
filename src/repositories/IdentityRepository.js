@@ -12,7 +12,7 @@ module.exports = class IdentityRepository extends Repository {
     }
 
 
-    async getOne(user_name) {
+    async getOne(userName) {
 
         try {
 
@@ -24,7 +24,7 @@ module.exports = class IdentityRepository extends Repository {
                 WHERE user_name = $1 ; \
             ';
 
-            const users = await this.db.query(SQL, [ user_name ]);
+            const users = await this.db.query(SQL, [ userName ]);
             return users[0];
 
         } catch(err) {

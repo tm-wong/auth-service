@@ -95,10 +95,10 @@ module.exports = class IdentityService {
     async verify(request) {
 
         const log = this.log;
-        const { user_name, passw } = request?.body;
+        const { user_name: userName, passw } = request?.body;
 
         try {
-            const result = await this.repo.getOne(user_name);
+            const result = await this.repo.getOne(userName);
 
             if (!result?.status || !result?.passw) {
                 throw new E_UNAUTHORIZED();
@@ -107,13 +107,13 @@ module.exports = class IdentityService {
             const { passw: hash } = result;
 
             await this.check(passw, hash);
-            log.info('user authenticated - Ok', user_name);
+            log.info('user authenticated - Ok', userName);
 
-            const payload = this.payload({ user_name });
+            const payload = this.payload({ userName });
             return await this.sign(payload);
 
         } catch(err) {
-            this.log.debug('user_name', user_name, 'passw', !!passw);
+            this.log.debug('user name', userName, 'passw', !!passw);
             this.log.error(err);
             throw err;
         }
