@@ -60,6 +60,7 @@ La gestion d'erreurs est assez aisée à mettre en œuvre de façon limpide avec
 
 Les logs d'appel HTTP y sont également prévus à l'emplacement `/var/log/auth-service/`
 Les logs d'erreurs y sont également pris en charge, bien qu'il convienne de logger celles-ci à l'issue de l'exécution des méthodes les plus sujettes aux imprévus.
+
 ---
 
 ## 3 - Utilisation du token
