@@ -68,9 +68,39 @@ Les logs d'appel HTTP et autres sont configurés à l'emplacement `/var/log/auth
 ---
 
 ## 5 - Utilisation du token
-```sh
-export TOKEN='eyJhbGc............'
 
+Requérir un token
+
+
+```sh
+curl -i -X POST \
+-H 'Content-Type: application/json' \
+-H 'Accept: application/json' \
+-d '{ "user_name": "efinkle0", "passw": "xxxx" }' \
+https://server.com/api/auth
+
+
+HTTP/1.1 200 OK
+vary: Origin
+access-control-allow-origin: *
+content-type: application/json; charset=utf-8
+content-length: 988
+Date: Sun, 23 Jul 2023 19:57:54 GMT
+Connection: keep-alive
+Keep-Alive: timeout=72
+
+{
+  "access_token": "eyJhbGciOiJSUzI1NiJ9.eyJ1c2VyX25h...",
+  "expires_in": 10800,
+  "token_type": "Bearer"
+}
+
+```
+
+Utiliser un token
+
+```sh
+export TOKEN='eyJhbGciOiJSUzI1NiJ9.eyJ1c2VyX25hbWUiOiJlZmlua2xlMCIsImlzcyI6ImF1...'
 curl -i \
 -H "Authorization: Bearer $TOKEN" \
 https://my-super-app.com/api/some/private/route
