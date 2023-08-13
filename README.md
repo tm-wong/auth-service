@@ -27,12 +27,6 @@ Le modèle de la base de données est disponible dans le répertoire SQL (db_aut
 ## 1 - Sécurité
 Cette API d'authentification permet de récupérer un JSON Web Token en échange d'un nom d'utilisateur et d'un mot de passe, permettant l'accès à une application déchiffrant le token et vérifiant par là l'identité de l'utilisateur.
 
-La documentation pour celle-ci est disponible à partir de l'URL suivante :
-_https://limitless-savannah-34441-943d2c48f28e.herokuapp.com/api/doc_
-
-Le dépôt git correspondant est situé à partir de l'emplacement suivant :
-_https://github.com/tm-wong/auth-service_
-
 Pour l'utilisation de ce token, consulter la section 4 "Utilisation du token", un peu plus bas.
 
 ---
@@ -57,11 +51,13 @@ Celle-ci liste chacune des routes avec des exemples d'utilisation.
 ---
 
 #### Error handling
+
 La gestion d'erreurs est assez aisée à mettre en œuvre de façon limpide avec Fastify, puisque en plus d'un dispositif de _catchall_ situé dans le script principal, Fastify est packagé avec son interface de gestion d'erreurs dédiée et permettant d'émettre des erreurs HTTP de façon plutôt simple.
 
 ---
 
 #### Les logs
+
 Les logs d'appel HTTP y sont également prévus à l'emplacement `/var/log/auth-service/`
 Les logs d'erreurs y sont également pris en charge, bien qu'il convienne de logger celles-ci à l'issue de l'exécution des méthodes les plus sujettes aux imprévus.
 ---
