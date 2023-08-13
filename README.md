@@ -50,7 +50,7 @@ Celle-ci liste chacune des routes avec des exemples d'utilisation.
 
 ---
 
-#### Error handling
+## 4 - Error handling
 
 La gestion d'erreurs est assez aisée à mettre en œuvre de façon limpide avec Fastify, puisque en plus d'un dispositif de _catchall_ situé dans le script principal, Fastify est packagé avec son interface de gestion d'erreurs dédiée et permettant d'émettre des erreurs HTTP de façon plutôt simple.
 
@@ -58,12 +58,16 @@ La gestion d'erreurs est assez aisée à mettre en œuvre de façon limpide avec
 
 #### Les logs
 
-Les logs d'appel HTTP y sont également prévus à l'emplacement `/var/log/auth-service/`
-Les logs d'erreurs y sont également pris en charge, bien qu'il convienne de logger celles-ci à l'issue de l'exécution des méthodes les plus sujettes aux imprévus.
+L'application est pourvue d'un catchall pour les logs d'erreurs non catchées.
+
+Il convient toutefois de prévoir de logger celles-ci à l'issue de l'exécution des méthodes les plus sujettes aux imprévus.
+
+Les logs d'appel HTTP et autres sont configurés à l'emplacement `/var/log/auth-service/`.
+
 
 ---
 
-## 3 - Utilisation du token
+## 5 - Utilisation du token
 ```sh
 export TOKEN='eyJhbGc............'
 
