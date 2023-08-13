@@ -1,10 +1,8 @@
-# auth-service
-
 ###### ****************************************************************
 
-#     _Auth Service - REST API_
-#     _https://github.com/tm-wong/auth-service_
-###     T. M. Wong
+######    _Auth Service - REST API_
+######    _https://github.com/tm-wong/auth-service_
+######    T. M. Wong
 # 
 ###### ****************************************************************
 
